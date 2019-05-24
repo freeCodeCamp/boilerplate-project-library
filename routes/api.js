@@ -12,7 +12,7 @@ var expect = require('chai').expect;
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectId;
 const mongoose =  require('mongoose');
-const MONGODB_CONNECTION_STRING = process.env.CONNECTION_STRING;
+const MONGODB_CONNECTION_STRING = process.env.CONNECTION_STRING ? process.env.CONNECTION_STRING : 'mongodb://localhost:27017/fcc';
 //Example connection: MongoClient.connect(MONGODB_CONNECTION_STRING, function(err, db) {});
 mongoose.connect(MONGODB_CONNECTION_STRING);
 const Schema = mongoose.Schema;
@@ -96,6 +96,7 @@ module.exports = function (app) {
               data.comments = [];
             }
             data.comments.push(comment);
+            data.commentcount++;
             data.save((err, savedData)=>{
               if(err){
                 res.send('no book exists');
