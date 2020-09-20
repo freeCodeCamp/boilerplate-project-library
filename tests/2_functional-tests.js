@@ -6,10 +6,10 @@
 *       
 */
 
-var chaiHttp = require('chai-http');
-var chai = require('chai');
-var assert = chai.assert;
-var server = require('../server');
+const chaiHttp = require('chai-http');
+const chai = require('chai');
+const assert = chai.assert;
+const server = require('../server');
 
 chai.use(chaiHttp);
 
@@ -78,7 +78,23 @@ suite('Functional Tests', function() {
       test('Test POST /api/books/[id] with comment', function(done){
         //done();
       });
+
+      test('Test POST /api/books/[id] with comment with with id not in db', function(done){
+        //done();
+      });
       
+    });
+
+    suite('DELETE /api/books/[id] => delete book object id', function() {
+
+      test('Test DELETE /api/books/[id] with valid id in db', function(done){
+        //done();
+      });
+
+      test('Test DELETE /api/books/[id] with  id not in db', function(done){
+        //done();
+      });
+
     });
 
   });
