@@ -31,7 +31,8 @@ function objParser(str, init) {
   let openSym = ['[', '{', '"', "'", '('];
   let closeSym = [']', '}', '"', "'", ')'];
   let type;
-  for(let i = (init || 0); i < str.length; i++ ) {
+  let i;
+  for(i = (init || 0); i < str.length; i++ ) {
     type = openSym.indexOf(str[i]);
     if( type !== -1)  break;
   }
@@ -39,7 +40,8 @@ function objParser(str, init) {
   let open = openSym[type];
   let close = closeSym[type];
   let count = 1;
-  for(let k = i+1; k < str.length; k++) {
+  let k;
+  for(k = i+1; k < str.length; k++) {
     if(open === '"' || open === "'") {
       if(str[k] === close) count--;
       if(str[k] === '\\') k++;
@@ -100,7 +102,13 @@ function assertionAnalyser(body) {
   // replace assertions bodies, so that they cannot
   // contain the word 'assertion'
 
-  body = body.match(/(?:browser\s*\.\s*)?assert\s*\.\s*\w*\([\s\S]*\)/)[0];
+  let cleanedBody = body.match(/(?:browser\s*\.\s*)?assert\s*\.\s*\w*\([\s\S]*\)/)
+  if(cleanedBody && Array.isArray(cleanedBody)) {
+    body = cleanedBody[0];
+  } else {
+    // No assertions present
+    return [];
+  }
   let s = replacer(body);
   // split on 'assertion'
   let splittedAssertions = s.str.split('assert');
