@@ -79,7 +79,11 @@ suite('Functional Tests', function() {
         //done();
       });
 
-      test('Test POST /api/books/[id] with comment with with id not in db', function(done){
+      test('Test POST /api/books/[id] without comment field', function(done){
+        //done();
+      });
+
+      test('Test POST /api/books/[id] with comment, id not in db', function(done){
         //done();
       });
       
