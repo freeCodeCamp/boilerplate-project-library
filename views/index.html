@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>FCC ISQA Project - Personal Library</title>
+  <title>Quality Assurance Project - Personal Library</title>
   <meta name="description" content="A cool thing made with HyperDev">
   <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
   <meta charset="utf-8">
@@ -16,30 +16,10 @@
 <body>
 <header>
   <h1>
-    <b>ISQA Project</b> - Personal Library
+    <b>Quality Assurance Project</b> - Personal Library
   </h1>
 </header>
 <br>
-<div id="userstories">
-  <h2>User stories:</h2>
-  <ol>
-    <li>I can <b>post</b> a <code>title</code> to /api/books to add a book and returned will be the object with the <code>title</code> and a unique <code>_id</code>.  If
-      <code>title</code> is not included in the request, return '<code>missing
-        required field title</code>'</li>
-    <li>I can <b>get</b> /api/books to retrieve an array of all books containing <code>title</code>, <code>_id</code>, & <code>commentcount</code>.</li>
-    <li>I can <b>get</b> /api/books/{_id} to retrieve a single object of a book containing <code>title</code>, <code>_id</code>, & an array of <code>comments</code> (empty array if no comments present).</li>
-    <li>I can <b>post</b> a <code>comment</code> to /api/books/{_id} to add a comment to a book and returned will be the books object similar to <b>get</b> /api/books/{_id}. If <code>comment</code> is not included in the request, return '<code>missing required field comment</code>'</li>
-    <li>I can <b>delete</b> /api/books/{_id} to delete a book from the collection. Returned will be '<code>delete
-      successful</code>' if successful.</li>
-    <li>If I try to request, comment on, or delete a book that doesn't exist I will get a '<code>no book exists</code>' message.</li>
-    <li>I can send a <b>delete</b> request to /api/books to delete all books in the database. Returned will be '<code>complete
-      delete successful</code>' if successful.</li>
-    <li>All 10 functional tests required are complete and passing.</li>
-  </ol>
-  <br>
-  <img src='https://cdn.gomix.com/d7932c52-287f-4dae-b175-631fef453000%2FScreen%20Shot%202016-12-16%20at%201.35.56%20AM.png' />
-</div>
-<hr style='margin: 50px'>
 <div id ='sampleposting'>
   <h2 style="text-align: left">Test API responses:</h2>
   <form action="/api/books" method="post" class="border">
@@ -83,7 +63,7 @@
   */
   $(function() {
     $('#commentTest').submit(function(){
-      var id = $('#idinputtest').val();
+      let  id = $('#idinputtest').val();
       $(this).attr('action', "/api/books/" + id);
     });
   });
