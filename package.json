@@ -1,6 +1,6 @@
 {
 	"name": "fcc-library",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"description": "boilerplate",
 	"main": "server.js",
 	"scripts": {
@@ -22,7 +22,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://hyperdev.com/#!/project/welcome-project"
+		"url": "https://github.com/freeCodeCamp/boilerplate-project-library"
 	},
 	"keywords": [
 		"node",
