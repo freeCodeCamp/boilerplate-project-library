@@ -8,12 +8,6 @@
 
 'use strict';
 
-var expect = require('chai').expect;
-var MongoClient = require('mongodb').MongoClient;
-var ObjectId = require('mongodb').ObjectId;
-const MONGODB_CONNECTION_STRING = process.env.DB;
-//Example connection: MongoClient.connect(MONGODB_CONNECTION_STRING, function(err, db) {});
-
 module.exports = function (app) {
 
   app.route('/api/books')
@@ -23,7 +17,7 @@ module.exports = function (app) {
     })
     
     .post(function (req, res){
-      var title = req.body.title;
+      let title = req.body.title;
       //response will contain new book object including atleast _id and title
     })
     
@@ -35,18 +29,18 @@ module.exports = function (app) {
 
   app.route('/api/books/:id')
     .get(function (req, res){
-      var bookid = req.params.id;
+      let bookid = req.params.id;
       //json res format: {"_id": bookid, "title": book_title, "comments": [comment,comment,...]}
     })
     
     .post(function(req, res){
-      var bookid = req.params.id;
-      var comment = req.body.comment;
+      let bookid = req.params.id;
+      let comment = req.body.comment;
       //json res format same as .get
     })
     
     .delete(function(req, res){
-      var bookid = req.params.id;
+      let bookid = req.params.id;
       //if successful response will be 'delete successful'
     });
   

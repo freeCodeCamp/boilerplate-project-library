@@ -1,9 +1,9 @@
 $( document ).ready(function() {
-  var items = [];
-  var itemsRaw = [];
+  let  items = [];
+  let  itemsRaw = [];
   
   $.getJSON('/api/books', function(data) {
-    //var items = [];
+    //let  items = [];
     itemsRaw = data;
     $.each(data, function(i, val) {
       items.push('<li class="bookItem" id="' + i + '">' + val.title + ' - ' + val.commentcount + ' comments</li>');
@@ -18,7 +18,7 @@ $( document ).ready(function() {
       }).appendTo('#display');
   });
   
-  var comments = [];
+  let  comments = [];
   $('#display').on('click','li.bookItem',function() {
     $("#detailTitle").html('<b>'+itemsRaw[this.id].title+'</b> (id: '+itemsRaw[this.id]._id+')');
     $.getJSON('/api/books/'+itemsRaw[this.id]._id, function(data) {
@@ -45,7 +45,7 @@ $( document ).ready(function() {
   });  
   
   $('#bookDetail').on('click','button.addComment',function() {
-    var newComment = $('#commentToAdd').val();
+    let  newComment = $('#commentToAdd').val();
     $.ajax({
       url: '/api/books/'+this.id,
       type: 'post',
