@@ -1,7 +1,7 @@
 $( document ).ready(function() {
   let  items = [];
   let  itemsRaw = [];
-  
+
   $.getJSON('/api/books', function(data) {
     //let  items = [];
     itemsRaw = data;
@@ -17,7 +17,7 @@ $( document ).ready(function() {
       html: items.join('')
       }).appendTo('#display');
   });
-  
+
   let  comments = [];
   $('#display').on('click','li.bookItem',function() {
     $("#detailTitle").html('<b>'+itemsRaw[this.id].title+'</b> (id: '+itemsRaw[this.id]._id+')');
@@ -32,7 +32,7 @@ $( document ).ready(function() {
       $('#detailComments').html(comments.join(''));
     });
   });
-  
+
   $('#bookDetail').on('click','button.deleteBook',function() {
     $.ajax({
       url: '/api/books/'+this.id,
@@ -42,8 +42,8 @@ $( document ).ready(function() {
         $('#detailComments').html('<p style="color: red;">'+data+'<p><p>Refresh the page</p>');
       }
     });
-  });  
-  
+  });
+
   $('#bookDetail').on('click','button.addComment',function() {
     let  newComment = $('#commentToAdd').val();
     $.ajax({
@@ -57,7 +57,7 @@ $( document ).ready(function() {
       }
     });
   });
-  
+
   $('#newBook').click(function() {
     $.ajax({
       url: '/api/books',
@@ -69,7 +69,7 @@ $( document ).ready(function() {
       }
     });
   });
-  
+
   $('#deleteAllBooks').click(function() {
     $.ajax({
       url: '/api/books',
@@ -80,6 +80,6 @@ $( document ).ready(function() {
         //update list
       }
     });
-  }); 
-  
+  });
+
 });

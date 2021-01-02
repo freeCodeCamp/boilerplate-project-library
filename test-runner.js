@@ -47,7 +47,7 @@ fs.readdirSync(testDir).filter(function(file){
     );
 });
 
-let emitter = new EventEmitter();  
+let emitter = new EventEmitter();
 emitter.run = function() {
 
   let tests = [];

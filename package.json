@@ -7,15 +7,14 @@
 		"start": "node server.js"
 	},
 	"dependencies": {
-		"express": "^4.14.0",
-		"cors": "^2.8.1",
 		"body-parser": "^1.15.2",
 		"chai": "^4.2.0",
 		"chai-http": "^4.3.0",
+		"cors": "^2.8.1",
+		"express": "^4.14.0",
+		"mocha": "^8.2.1",
 		"mongodb": "^3.6.2",
-		"zombie": "^5.0.5",
-		"mocha": "^3.2.0",
-		"dotenv": "^8.2.0"
+		"zombie": "^6.1.4"
 	},
 	"repository": {
 		"type": "git",
@@ -26,5 +25,8 @@
 		"hyperdev",
 		"express"
 	],
-	"license": "MIT"
+	"license": "MIT",
+	"devDependencies": {
+		"dotenv": "^8.2.0"
+	}
 }
