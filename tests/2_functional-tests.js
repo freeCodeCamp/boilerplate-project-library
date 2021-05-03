@@ -19,6 +19,8 @@ suite('Functional Tests', function() {
   * ----[EXAMPLE TEST]----
   * Each test should completely test the response of the API end-point including response status code!
   */
+
+  // TEST #1 -
   test('#example Test GET /api/books', function(done){
      chai.request(server)
       .get('/api/books')
@@ -39,20 +41,35 @@ suite('Functional Tests', function() {
 
 
     suite('POST /api/books with title => create book object/expect book object', function() {
-      
+  // TEST #1 -
       test('Test POST /api/books with title', function(done) {
-        //done();
+        chai
+        .request(server)
+        .post()
+        .send()
+        .end()
+        
+
+        done();
       });
       
+  // TEST #2 -    
       test('Test POST /api/books with no title given', function(done) {
         //done();
+        chai.request(server)
+        .post('/api/books')
+        .send({})
+        .end(function(err, res){
+          assert.equal(res.body, 'missing title')
+        done();
+        });
       });
       
     });
 
 
     suite('GET /api/books => array of books', function(){
-      
+  // TEST #3 -    
       test('Test GET /api/books',  function(done){
         //done();
       });      
@@ -61,11 +78,11 @@ suite('Functional Tests', function() {
 
 
     suite('GET /api/books/[id] => book object with [id]', function(){
-      
+  // TEST #4 -   
       test('Test GET /api/books/[id] with id not in db',  function(done){
         //done();
       });
-      
+  // TEST #5 -    
       test('Test GET /api/books/[id] with valid id in db',  function(done){
         //done();
       });
@@ -74,15 +91,15 @@ suite('Functional Tests', function() {
 
 
     suite('POST /api/books/[id] => add comment/expect book object with id', function(){
-      
+  // TEST #6 -    
       test('Test POST /api/books/[id] with comment', function(done){
         //done();
       });
-
+  // TEST #7 -
       test('Test POST /api/books/[id] without comment field', function(done){
         //done();
       });
-
+  // TEST #8 -
       test('Test POST /api/books/[id] with comment, id not in db', function(done){
         //done();
       });
@@ -90,11 +107,11 @@ suite('Functional Tests', function() {
     });
 
     suite('DELETE /api/books/[id] => delete book object id', function() {
-
+  // TEST #9 -
       test('Test DELETE /api/books/[id] with valid id in db', function(done){
         //done();
       });
-
+  // TEST #10 -
       test('Test DELETE /api/books/[id] with  id not in db', function(done){
         //done();
       });

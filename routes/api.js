@@ -7,8 +7,26 @@
 */
 
 'use strict';
+let dotenv = require('dotenv').config()
+var expect = require("chai").expect;
+let mongodb = require("mongodb");
+let mongoose = require("mongoose");
+let Schema = mongoose.Schema;
+
+// SET-UP MONGOOSE DB CONNECTIONS
+
 
 module.exports = function (app) {
+
+  mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+
+  let bookSchema = new Schema({
+    title: {type: String, required: true},
+    comments: [String]
+    
+  });
+  let Book = mongoose.model("Book", bookSchema)
+
 
   app.route('/api/books')
     .get(function (req, res){
@@ -19,6 +37,12 @@ module.exports = function (app) {
     .post(function (req, res){
       let title = req.body.title;
       //response will contain new book object including atleast _id and title
+      if (!title) {
+        return res.json('missing title')
+      }
+
+
+
     })
     
     .delete(function(req, res){
