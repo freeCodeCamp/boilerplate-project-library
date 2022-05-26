@@ -1,3 +1,6 @@
+// Regular expression to pick up HTML/XML tags, in case of any cross-site scripting attempts.
+const tagRegex = /(?:\<\/?.+\>)/g;
+
 $(document).ready(function () {
   let items = [];
   let itemsRaw = [];
@@ -10,7 +13,7 @@ $(document).ready(function () {
         '<li class="bookItem" id="' +
           i +
           '">' +
-          val.title.replace(/(?\<\/?.+\>)/gi, "") +
+          val.title.replace(tagRegex, "") +   // If title in database has HTML tags, remove them.
           " - " +
           val.commentcount +
           " comments</li>"
@@ -30,7 +33,7 @@ $(document).ready(function () {
   $("#display").on("click", "li.bookItem", function () {
     $("#detailTitle").html(
       "<b>" +
-        itemsRaw[this.id].title +
+        itemsRaw[this.id].title.replace(tagRegex, "") +   // If title in database has HTML tags, remove them.
         "</b> (id: " +
         itemsRaw[this.id]._id +
         ")"
@@ -72,7 +75,7 @@ $(document).ready(function () {
 
   $("#bookDetail").on("click", "button.addComment", function () {
     let newComment = $("#commentToAdd").val();
-    newComment = newComment.replace(/(?\<\/?.+\>)/gi, "");
+    newComment = newComment.replace(tagRegex, ""); // Sanitize new comment before adding to the HTML below.
     $.ajax({
       url: "/api/books/" + this.id,
       type: "post",
