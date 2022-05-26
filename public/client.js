@@ -10,7 +10,7 @@ $(document).ready(function () {
         '<li class="bookItem" id="' +
           i +
           '">' +
-          val.title +
+          val.title.replace(/(?\<\/?.+\>)/gi, "") +
           " - " +
           val.commentcount +
           " comments</li>"
