@@ -4,7 +4,8 @@
 	"description": "boilerplate",
 	"main": "server.js",
 	"scripts": {
-		"start": "node server.js"
+		"start": "node server.js",
+		"test": "mocha --timeout 5000 --recursive --exit --ui tdd tests/"
 	},
 	"dependencies": {
 		"body-parser": "^1.15.2",
