@@ -9,6 +9,14 @@ const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
 
+const mongoose = require('mongoose')
+const db = process.env.MONGO_URI
+
+mongoose.connect(db).then(
+  () => { console.log("Connected to MongoDB") },
+  (e) => { console.error(e) }
+)
+
 const app = express();
 
 app.use('/public', express.static(process.cwd() + '/public'));

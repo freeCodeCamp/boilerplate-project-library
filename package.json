@@ -5,7 +5,8 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "node server.js",
-		"test": "mocha --timeout 5000 --recursive --exit --ui tdd tests/"
+		"test": "mocha --timeout 5000 --recursive --exit --ui tdd tests/",
+		"devStart": "nodemon server.js"
 	},
 	"dependencies": {
 		"body-parser": "^1.15.2",
@@ -15,7 +16,11 @@
 		"dotenv": "^8.2.0",
 		"express": "^4.14.0",
 		"mocha": "^3.2.0",
+		"mongoose": "^6.9.0",
 		"zombie": "^5.0.5"
+	},
+	"devDependencies": {
+			"nodemon": "^2.0.20"
 	},
 	"repository": {
 		"type": "git",
