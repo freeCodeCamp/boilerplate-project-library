@@ -18,7 +18,7 @@
     "helmet": "^3.21.1",
     "mocha": "^10.1.0",
     "mongodb": "^3.1.13",
-    "mongoose": "^6.11.3",
+    "mongoose": "^6.12.0",
     "zombie": "^6.1.4",
     "@snyk/protect": "latest"
   },
